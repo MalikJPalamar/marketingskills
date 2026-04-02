@@ -46,6 +46,7 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | customer-io | Email | ✓ | - | [✓](clis/customer-io.js) | ✓ | [customer-io.md](integrations/customer-io.md) |
 | sendgrid | Email | ✓ | - | [✓](clis/sendgrid.js) | ✓ | [sendgrid.md](integrations/sendgrid.md) |
 | resend | Email | ✓ | ✓ | [✓](clis/resend.js) | ✓ | [resend.md](integrations/resend.md) |
+| nitrosend | Email | ✓ | ✓ | - | - | [nitrosend.md](integrations/nitrosend.md) |
 | kit | Email | ✓ | - | [✓](clis/kit.js) | ✓ | [kit.md](integrations/kit.md) |
 | beehiiv | Newsletter | ✓ | - | [✓](clis/beehiiv.js) | - | [beehiiv.md](integrations/beehiiv.md) |
 | klaviyo | Email/SMS | ✓ | - | [✓](clis/klaviyo.js) | ✓ | [klaviyo.md](integrations/klaviyo.md) |
@@ -69,8 +70,10 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | intercom | Messaging | ✓ | - | [✓](clis/intercom.js) | ✓ | [intercom.md](integrations/intercom.md) |
 | outreach | Sales Engagement | ✓ | ✓ | [✓](clis/outreach.js) | - | [outreach.md](integrations/outreach.md) |
 | crossbeam | Partner Ecosystem | ✓ | ✓ | [✓](clis/crossbeam.js) | - | [crossbeam.md](integrations/crossbeam.md) |
+| introw | Partner Ecosystem | - | ✓ | - | - | [introw.md](integrations/introw.md) |
 | pendo | Product Analytics | ✓ | - | [✓](clis/pendo.js) | - | [pendo.md](integrations/pendo.md) |
 | similarweb | Competitive Intelligence | ✓ | - | [✓](clis/similarweb.js) | - | [similarweb.md](integrations/similarweb.md) |
+| firehose | Competitive Intelligence | ✓ | - | - | - | [firehose.md](integrations/firehose.md) |
 | airops | AI Content | ✓ | - | [✓](clis/airops.js) | - | [airops.md](integrations/airops.md) |
 | buffer | Social | ✓ | - | [✓](clis/buffer.js) | - | [buffer.md](integrations/buffer.md) |
 | wistia | Video | ✓ | - | [✓](clis/wistia.js) | - | [wistia.md](integrations/wistia.md) |
@@ -82,6 +85,10 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | shopify | Commerce | ✓ | - | ✓ | ✓ | [shopify.md](integrations/shopify.md) |
 | wordpress | CMS | ✓ | - | ✓ | ✓ | [wordpress.md](integrations/wordpress.md) |
 | webflow | CMS | ✓ | - | ✓ | ✓ | [webflow.md](integrations/webflow.md) |
+| sanity | Headless CMS | ✓ | - | ✓ | ✓ | [sanity.md](integrations/sanity.md) |
+| contentful | Headless CMS | ✓ | - | ✓ | ✓ | [contentful.md](integrations/contentful.md) |
+| strapi | Headless CMS | ✓ | - | ✓ | ✓ | [strapi.md](integrations/strapi.md) |
+| composio | Integration Layer | ✓ | ✓ | ✓ | ✓ | [composio.md](integrations/composio.md) |
 
 ---
 
@@ -350,8 +357,9 @@ Partner data sharing, co-sell, and ecosystem management.
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **crossbeam** | Account overlaps, co-sell | Now part of Reveal |
+| **introw** | Partner management, deal registration, QBRs | MCP-enabled PRM |
 
-**Agent recommendation**: Crossbeam for identifying partner account overlaps and co-sell opportunities.
+**Agent recommendation**: Crossbeam for identifying partner account overlaps and co-sell opportunities. Introw for full partner relationship management — partner pipeline, commissions, tasks, and automated business review prep.
 
 ### Email Outreach
 
@@ -386,8 +394,11 @@ E-commerce platforms and content management systems.
 | **shopify** | E-commerce, product sales | ✓ |
 | **wordpress** | Blogs, content sites | ✓ |
 | **webflow** | Design-focused marketing sites | ✓ |
+| **sanity** | Headless CMS, structured content | ✓ |
+| **contentful** | Enterprise headless CMS, multi-locale | ✓ |
+| **strapi** | Open-source headless CMS, self-hosted | ✓ |
 
-**Agent recommendation**: Shopify for e-commerce. Webflow for marketing sites. WordPress for blogs.
+**Agent recommendation**: Shopify for e-commerce. Webflow for marketing sites. WordPress for blogs. For headless CMS: Sanity for developer-flexible content, Contentful for enterprise multi-locale, Strapi for self-hosted/budget-conscious. See [headless CMS guide](../skills/content-strategy/references/headless-cms.md) for selection criteria.
 
 ---
 
@@ -419,8 +430,19 @@ These tools have Model Context Protocol servers available, enabling direct agent
 - **coupler** - Marketing data pipelines
 - **outreach** - Sales engagement sequences
 - **crossbeam** - Partner ecosystem data
+- **introw** - Partner relationship management
 
 To use MCP tools, ensure the appropriate MCP server is configured in your environment.
+
+### Composio Integration
+
+[Composio](integrations/composio.md) provides managed OAuth and pre-built connectors for 500+ tools via a single MCP server. It adds MCP access to tools that don't have native MCP servers, including HubSpot, Salesforce, Meta Ads, LinkedIn Ads, Google Sheets, Slack, Notion, and more.
+
+- **Setup**: `npx @composio/mcp@latest setup`
+- **Quick start**: See [tools/composio/README.md](composio/README.md)
+- **Marketing tool mapping**: See [tools/composio/marketing-tools.md](composio/marketing-tools.md)
+
+Use Composio when you need MCP access to OAuth-heavy tools. Prefer native MCP servers (GA4, Stripe, Mailchimp, etc.) when available — they have deeper coverage.
 
 ---
 
